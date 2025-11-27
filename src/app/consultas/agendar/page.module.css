@@ -1,0 +1,406 @@
+/* page.module.css */
+
+.agendar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  .titulo {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+  
+  .subtitulo {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    font-weight: 500;
+  }
+  
+  /* Layout Grid */
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .colunaFormulario,
+  .colunaCalendario {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Formulário */
+  .formAgendar {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1rem;
+  }
+  
+  .select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    color: #333;
+  }
+  
+  .select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+  
+  /* Calendário - Estilo da Imagem */
+  .calendario {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dataSelecionada {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .calendarioHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .calendarioTitulo {
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: lowercase;
+  }
+  
+  .calendarioNav {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .calendarioNav button {
+    background: none;
+    border: 1px solid #ddd;
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .calendarioNav button:hover {
+    background: #f8f9fa;
+  }
+  
+  .calendarioDiasSemana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .diaSemana {
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+  
+  .calendarioDias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.25rem;
+  }
+  
+  .dia {
+    aspect-ratio: 1;
+    border: 1px solid transparent;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dia:hover {
+    background: #f8f9fa;
+  }
+  
+  .diaHoje {
+    background: #007bff;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .diaSelecionado {
+    background: #28a745;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .diaOutroMes {
+    color: #ccc;
+  }
+  
+  .calendarioAcoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  
+  .botaoLimpar,
+  .botaoHoje {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .botaoHoje {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  
+  /* Seletor de Horários */
+  .seletorHorarios {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .horariosTitulo {
+    color: #333;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .listaHorarios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .horarioItem {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .horarioItem:hover {
+    background: #f8f9fa;
+  }
+  
+  .horarioSelecionado {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+  }
+  
+  /* Botão Agendar */
+  .botaoAgendar {
+    width: 100%;
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  .botaoAgendar:hover:not(:disabled) {
+    background: #218838;
+  }
+  
+  .botaoAgendar:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+  
+  .loadingSpinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Lista de Consultas */
+  .listaConsultas {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .listaTitulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .contador {
+    background: #007bff;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  
+  .consultasList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .consultaItem {
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 1rem;
+    background: #fafafa;
+  }
+  
+  .consultaHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .consultaId {
+    color: #666;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .consultaStatus {
+    background: #28a745;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  
+  .consultaInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .infoLinha {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .textoDestaque {
+    font-weight: 600;
+    color: #555;
+    font-size: 0.8rem;
+  }
+  
+  .textoValor {
+    color: #333;
+    font-size: 0.8rem;
+  }
+  
+  .tipoParticular {
+    color: #dc3545;
+    font-weight: 600;
+  }
+  
+  .tipoPlanoSaude {
+    color: #28a745;
+    font-weight: 600;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .gridContainer {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .agendar {
+      padding: 1rem;
+    }
+    
+    .listaHorarios {
+      grid-template-columns: 1fr;
+    }
+    
+    .calendarioDiasSemana,
+    .calendarioDias {
+      gap: 0.1rem;
+    }
+    
+    .dia {
+      font-size: 0.7rem;
+    }
+  }
