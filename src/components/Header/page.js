@@ -20,7 +20,7 @@ export default function Header() {
           <span></span>
         </button>
 
-        <div className={styles.logoMobile}>Clínica Saúde Total</div>
+        <div className={styles.logoMobile}>Saúde Total</div>
 
         {show && (
           <div className={styles.mobileMenu}>
@@ -58,7 +58,15 @@ export default function Header() {
                   </ul>
                 </li>
 
-                <li><Link className={styles.link} href="/consultas" onClick={() => setShow(false)}>Consultas</Link></li>
+                <li className={styles.mobileSubmenu}>
+                  <span className={styles.submenuTitle}>Consultas</span>
+                  <ul className={styles.ulSubMenuMobile}>
+                    <li><Link className={styles.link} href="/consultas/listar" onClick={() => setShow(false)}>Listar</Link></li>
+                    <li><Link className={styles.link} href="/consultas/agendar" onClick={() => setShow(false)}>Agendar</Link></li>
+                    <li><Link className={styles.link} href="/consultas/editar" onClick={() => setShow(false)}>Editar Agendamento</Link></li>
+                    <li><Link className={styles.link} href="/consultas/cancelar" onClick={() => setShow(false)}>Cancelar</Link></li>
+                  </ul>
+                </li>
               </ul>
             </nav>
           </div>
@@ -67,7 +75,7 @@ export default function Header() {
 
       {/* Header Desktop */}
       <header className={styles.header}>
-        <div className={styles.logo}>Clínica Saúde Total</div>
+        <div className={styles.logo}>Saúde Total</div>
         <nav>
           <ul className={styles.ulMenu}>
             <li className={styles.liMenu}>
@@ -106,6 +114,12 @@ export default function Header() {
 
             <li className={styles.liMenu}>
               <Link className={styles.link} href="/consultas">Consultas</Link>
+              <ul className={styles.ulSubMenu}>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/listar">Listar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/agendar">Agendar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/editar">Editar Agendamento</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/cancelar">Cancelar</Link></li>
+              </ul>
             </li>
           </ul>
         </nav>

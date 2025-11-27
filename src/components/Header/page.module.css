@@ -1,226 +1,281 @@
+
 /* Header Desktop */
 .header {
-    background: linear-gradient(135deg, #d61d1d, #0c0358);
-    padding: 0 2rem;
+  background: linear-gradient(135deg, #1dd698, #0c0358);
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: relative;
+  min-height: 90px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.ulMenu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem;
+}
+
+.liMenu {
+  position: relative;
+  padding: 1.5rem 0;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.link:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Submenu Desktop - CORREÇÃO AQUI */
+.ulSubMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 240px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-15px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border-top: 3px solid #1dd698;
+  overflow: hidden; /* IMPEDE QUE O CONTEÚDO ULTRAPASSE */
+}
+
+.liMenu:hover .ulSubMenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.liSubMenu {
+  padding: 0;
+  margin: 0;
+  width: 100%; /* GARANTE QUE OCUPE TODA A LARGURA */
+}
+
+.liSubMenu .link {
+  color: #444;
+  display: block;
+  padding: 1rem 2rem;
+  width: 100%;
+  border-radius: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+  box-sizing: border-box; /* GARANTE QUE PADDING NÃO AUMENTE A LARGURA */
+  margin: 0; /* REMOVE QUALQUER MARGEM */
+}
+
+.liSubMenu .link:hover {
+  background-color: #f8f9fa;
+  color: #1dd698;
+  padding-left: 2.5rem;
+  transform: none; 
+}
+
+/* Header Mobile */
+.headerMobile {
+  display: none;
+  background: linear-gradient(135deg, #1dd698, #0c0358);
+  padding: 1.5rem;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  min-height: 80px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logoMobile {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  flex: 1;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Botão Hamburguer */
+.mobileButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 35px;
+  height: 25px;
+  padding: 0;
+  position: absolute;
+  left: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mobileButton span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.mobileButton.open span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobileButton.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobileButton.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Menu Mobile */
+.mobileMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ulMenuMobile {
+  list-style: none;
+  margin: 0;
+  padding: 1.5rem 0;
+}
+
+.ulMenuMobile > li {
+  border-bottom: 1px solid #e9ecef;
+}
+
+.ulMenuMobile > li:last-child {
+  border-bottom: none;
+}
+
+.ulMenuMobile .link {
+  color: #444;
+  display: block;
+  padding: 1.25rem 2rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.ulMenuMobile .link:hover {
+  background-color: #f8f9fa;
+  color: #1dd698;
+  padding-left: 2.5rem;
+}
+
+/* Submenu Mobile */
+.mobileSubmenu {
+  padding: 0;
+}
+
+.submenuTitle {
+  display: block;
+  padding: 1.25rem 2rem;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #e9ecef;
+  background-color: #f8f9fa;
+  letter-spacing: 0.3px;
+}
+
+.ulSubMenuMobile {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  overflow: hidden; /* IMPEDE ULTRAPASSAR NO MOBILE TAMBÉM */
+}
+
+.ulSubMenuMobile .link {
+  padding: 1rem 2rem 1rem 3.5rem;
+  color: #555;
+  font-size: 1rem;
+  font-weight: 500;
+  border-left: 4px solid transparent;
+  transition: all 0.2s ease;
+  box-sizing: border-box; /* GARANTE CONSISTÊNCIA */
+  width: 100%;
+}
+
+.ulSubMenuMobile .link:hover {
+  background-color: #ffffff;
+  color: #1dd698;
+  border-left-color: #1dd698;
+  padding-left: 4rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .header {
+    display: none;
+  }
+  
+  .headerMobile {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
   }
-  
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+}
+
+@media (min-width: 769px) {
+  .headerMobile {
+    display: none;
   }
-  
+}
+
+/* Melhorias para telas muito grandes */
+@media (min-width: 1200px) {
+  .header {
+    padding: 0 4rem;
+  }
+
   .ulMenu {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 2rem;
-  }
-  
-  .liMenu {
-    position: relative;
-    padding: 1rem 0;
+    gap: 3rem;
   }
   
   .link {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    font-size: 1.15rem;
+    padding: 0.85rem 1.75rem;
   }
-  
-  .link:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-  
-  /* Submenu Desktop */
-  .ulSubMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: white;
-    min-width: 200px;
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-  }
-  
-  .liMenu:hover .ulSubMenu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  
-  .liSubMenu {
-    padding: 0;
-  }
-  
-  .liSubMenu .link {
-    color: #555;
-    display: block;
-    padding: 0.75rem 1.5rem;
-    width: 100%;
-    border-radius: 0;
-  }
-  
-  .liSubMenu .link:hover {
-    background-color: #fff5f8;
-    color: #ff66b2;
-  }
-  
-  /* Header Mobile */
-  .headerMobile {
-    display: none;
-    background: linear-gradient(135deg, #ff66b2, #ff99cc);
-    padding: 1rem;
-    position: relative;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logoMobile {
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    flex: 1;
-  }
-  
-  /* Botão Hamburguer */
-  .mobileButton {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 21px;
-    padding: 0;
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .mobileButton span {
-    display: block;
-    height: 3px;
-    width: 100%;
-    background-color: white;
-    border-radius: 3px;
-    transition: all 0.3s ease;
-  }
-  
-  .mobileButton.open span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-  }
-  
-  .mobileButton.open span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .mobileButton.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-  
-  /* Menu Mobile */
-  .mobileMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .ulMenuMobile {
-    list-style: none;
-    margin: 0;
-    padding: 1rem 0;
-  }
-  
-  .ulMenuMobile > li {
-    border-bottom: 1px solid #f0f0f0;
-  }
-  
-  .ulMenuMobile > li:last-child {
-    border-bottom: none;
-  }
-  
-  .ulMenuMobile .link {
-    color: #555;
-    display: block;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
-  .ulMenuMobile .link:hover {
-    background-color: #fff5f8;
-    color: #ff66b2;
-  }
-  
-  /* Submenu Mobile */
-  .mobileSubmenu {
-    padding: 0;
-  }
-  
-  .submenuTitle {
-    display: block;
-    padding: 1rem 1.5rem;
-    color: #555;
-    font-weight: 600;
-    border-bottom: 1px solid #f0f0f0;
-    background-color: #f9f9f9;
-  }
-  
-  .ulSubMenuMobile {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  
-  .ulSubMenuMobile .link {
-    padding-left: 2.5rem;
-    color: #666;
-    font-size: 0.9rem;
-  }
-  
-  .ulSubMenuMobile .link:hover {
-    background-color: #fff0f5;
-  }
-  
-  /* Responsividade */
-  @media (max-width: 768px) {
-    .header {
-      display: none;
-    }
-    
-    .headerMobile {
-      display: flex;
-      align-items: center;
-    }
-  }
-  
-  @media (min-width: 769px) {
-    .headerMobile {
-      display: none;
-    }
-  }
+}
