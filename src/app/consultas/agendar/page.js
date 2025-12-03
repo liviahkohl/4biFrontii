@@ -18,7 +18,6 @@ export default function AgendarConsulta() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState("");
 
-  // Horários disponíveis conforme a imagem
   const horariosDisponiveis = [
     "07:00", "07:30", "08:00", "08:30", "09:00", "09:30",
     "10:00", "10:30", "11:00", "11:30", "14:00", "14:30",
@@ -136,7 +135,6 @@ export default function AgendarConsulta() {
     }
   };
 
-  // Componente do Calendário no estilo da imagem
   const Calendario = () => {
     const today = new Date();
     const year = currentMonth.getFullYear();
@@ -154,19 +152,16 @@ export default function AgendarConsulta() {
     const getDaysArray = () => {
       const days = [];
       
-      // Dias do mês anterior
       const prevMonthLastDay = new Date(year, month, 0).getDate();
       for (let i = firstDayOfWeek - 1; i >= 0; i--) {
         days.push(new Date(year, month - 1, prevMonthLastDay - i));
       }
       
-      // Dias do mês atual
       for (let day = 1; day <= daysInMonth; day++) {
         days.push(new Date(year, month, day));
       }
       
-      // Dias do próximo mês para completar a grid
-      const totalCells = 42; // 6 semanas
+      const totalCells = 42; 
       const nextMonthDays = totalCells - days.length;
       for (let day = 1; day <= nextMonthDays; day++) {
         days.push(new Date(year, month + 1, day));
@@ -255,7 +250,6 @@ export default function AgendarConsulta() {
     );
   };
 
-  // Componente do Seletor de Horários
   const SeletorHorarios = () => {
     return (
       <div className={styles.seletorHorarios}>
@@ -287,7 +281,6 @@ export default function AgendarConsulta() {
       <p className={styles.subtitulo}>Matrícula: 2024103030040</p>
       
       <div className={styles.gridContainer}>
-        {/* Coluna da Esquerda - Formulário */}
         <div className={styles.colunaFormulario}>
           <form onSubmit={handleSubmit} className={styles.formAgendar}>
             <div className={styles.formGroup}>
@@ -358,7 +351,6 @@ export default function AgendarConsulta() {
           </form>
         </div>
 
-        {/* Coluna da Direita - Calendário e Horários */}
         <div className={styles.colunaCalendario}>
           <Calendario />
           <SeletorHorarios />
