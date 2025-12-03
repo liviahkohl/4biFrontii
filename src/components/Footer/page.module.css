@@ -1,0 +1,93 @@
+.rodape {
+    background-color: #0c0358;
+    color: white;
+    padding: 20px 15px 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .conteudoRodape {
+    max-width: 500px;
+    margin: 0 auto 15px;
+    text-align: center;
+  }
+  
+  .infoClinica h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: white;
+  }
+  
+  .infoClinica p {
+    line-height: 1.4;
+    margin-bottom: 15px;
+    color: #d1e7ff;
+    font-size: 0.85rem;
+  }
+  
+  .contato {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .contatoItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .contatoItem p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #e6f2ff;
+  }
+  
+  .icone {
+    font-size: 1.2rem;
+    color: #2d7cf0;
+  }
+  
+  .rodapeBase {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .rodapeBase p {
+    margin-bottom: 3px;
+    color: #b3d9ff;
+    font-size: 0.75rem;
+  }
+  
+  .creditos {
+    font-size: 0.7rem;
+    margin-top: 3px;
+  }
+  
+  .creditos span {
+    color: #2d7cf0;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .rodape {
+      padding: 15px 10px 8px;
+    }
+    
+    .contato {
+      gap: 15px;
+    }
+    
+    .contatoItem p {
+      font-size: 0.75rem;
+    }
+    
+    .icone {
+      font-size: 1rem;
+    }
+  }

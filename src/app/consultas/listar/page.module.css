@@ -5,7 +5,7 @@
   }
   
   .title {
-    color: #0c0358;
+    color: #000000;
     text-align: center;
     margin-bottom: 2rem;
     font-size: 2rem;
@@ -18,7 +18,7 @@
     font-size: 1.2rem;
     color: #666;
     background: #f8f9fa;
-    border-radius: 12px;
+    border-radius: 10px;
   }
   
   .error {
@@ -33,7 +33,7 @@
   
   .tableContainer {
     background: white;
-    border-radius: 12px;
+    border-radius: 5px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
   }
@@ -47,14 +47,14 @@
   .table th {
     background-color: #0c0358;
     color: white;
-    padding: 1.2rem 1rem;
+    padding: 1rem 0.5rem;
     text-align: left;
     font-weight: 600;
     font-size: 1rem;
   }
   
   .table td {
-    padding: 1rem;
+    padding: 0.7rem;
     border-bottom: 1px solid #e9ecef;
     color: #333;
   }

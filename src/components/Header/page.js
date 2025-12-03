@@ -2,13 +2,13 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
+import Image from "next/image";
 
 export default function Header() {
   const [show, setShow] = useState(false);
 
   return (
     <>
-      {/* Header Mobile */}
       <header className={styles.headerMobile}>
         <button
           className={`${styles.mobileButton} ${show ? styles.open : ''}`}
@@ -19,8 +19,9 @@ export default function Header() {
           <span></span>
           <span></span>
         </button>
+        
 
-        <div className={styles.logoMobile}>Saúde Total</div>
+        <div className={styles.logoMobile}>HealthCare Center</div>
 
         {show && (
           <div className={styles.mobileMenu}>
@@ -73,7 +74,6 @@ export default function Header() {
         )}
       </header>
 
-      {/* Header Desktop */}
       <header className={styles.header}>
         <div className={styles.logo}>Saúde Total</div>
         <nav>
