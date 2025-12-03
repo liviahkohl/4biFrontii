@@ -1,10 +1,35 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+import React from 'react';
+import styles from './page.module.css';
 
-export default function Home() {
+const Home = () => {
   return (
-   <div>
+    <div className={styles.homeContainer}>
+
     
-   </div>
+      <section className={styles.hero}>
+        <div className={styles.heroText}>
+          <h1>Bem-vindo à Clínica Vida+</h1>
+          <p>
+            Cuidando da sua saúde com responsabilidade, tecnologia e uma equipe
+            altamente especializada. Aqui você encontra atendimento humanizado e
+            qualidade em cada consulta.
+          </p>
+          <button 
+            className={styles.ctaBtn}
+            onClick={() => window.location.href = '/agendar-consulta'}
+          >
+            Agendar Consulta
+          </button>
+        </div>
+
+        <div className={styles.heroImage}>
+          <img src="/img/clinica.png" alt="Foto da clínica" />
+        </div>
+      </section>
+
+    </div>
   );
-}
+};
+
+export default Home;

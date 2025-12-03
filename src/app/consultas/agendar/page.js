@@ -14,7 +14,6 @@ export default function AgendarConsulta() {
   const [medicos, setMedicos] = useState([]);
   const [pacientes, setPacientes] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [consultasAgendadas, setConsultasAgendadas] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState("");
 
@@ -34,16 +33,7 @@ export default function AgendarConsulta() {
       .then((res) => res.json())
       .then((data) => setPacientes(data))
       .catch((err) => console.error("Erro ao carregar pacientes:", err));
-
-    carregarConsultas();
   }, []);
-
-  const carregarConsultas = () => {
-    fetch("https://api.clinica.dev.vilhena.ifro.edu.br/consultas?matricula=2024103030040")
-      .then((res) => res.json())
-      .then((data) => setConsultasAgendadas(data))
-      .catch((err) => console.error("Erro ao carregar consultas:", err));
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -115,7 +105,6 @@ export default function AgendarConsulta() {
 
       if (res.ok) {
         alert("Consulta agendada com sucesso! ID: " + result.id);
-        carregarConsultas();
         setForm({
           idMedico: "",
           idPaciente: "",
@@ -135,7 +124,8 @@ export default function AgendarConsulta() {
     }
   };
 
-  const Calendario = () => {
+  // Componente Calendário integrado
+  const CalendarioCompacto = () => {
     const today = new Date();
     const year = currentMonth.getFullYear();
     const month = currentMonth.getMonth();
@@ -152,15 +142,18 @@ export default function AgendarConsulta() {
     const getDaysArray = () => {
       const days = [];
       
+      // Dias do mês anterior
       const prevMonthLastDay = new Date(year, month, 0).getDate();
       for (let i = firstDayOfWeek - 1; i >= 0; i--) {
         days.push(new Date(year, month - 1, prevMonthLastDay - i));
       }
       
+      // Dias do mês atual
       for (let day = 1; day <= daysInMonth; day++) {
         days.push(new Date(year, month, day));
       }
       
+      // Dias do próximo mês
       const totalCells = 42; 
       const nextMonthDays = totalCells - days.length;
       for (let day = 1; day <= nextMonthDays; day++) {
@@ -189,7 +182,7 @@ export default function AgendarConsulta() {
       "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
     ];
 
-    const dayNames = ["D", "S", "T", "Q", "Q", "S", "S"];
+    const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 
     const formatDateDisplay = (date) => {
       if (!date) return "dd/mm/aaaa";
@@ -199,7 +192,7 @@ export default function AgendarConsulta() {
     };
 
     return (
-      <div className={styles.calendario}>
+      <div className={styles.calendarioCompacto}>
         <div className={styles.dataSelecionada}>
           {formatDateDisplay(selectedDate ? new Date(selectedDate) : null)}
         </div>
@@ -209,13 +202,13 @@ export default function AgendarConsulta() {
             {monthNames[month]} de {year}
           </h3>
           <div className={styles.calendarioNav}>
-            <button onClick={() => navigateMonth(-1)}>‹</button>
-            <button onClick={() => navigateMonth(1)}>›</button>
+            <button type="button" onClick={() => navigateMonth(-1)}>‹</button>
+            <button type="button" onClick={() => navigateMonth(1)}>›</button>
           </div>
         </div>
 
         <div className={styles.calendarioDiasSemana}>
-          {dayNames.map(day => (
+          {dayNames.map((day) => (
             <div key={day} className={styles.diaSemana}>
               {day}
             </div>
@@ -226,6 +219,7 @@ export default function AgendarConsulta() {
           {getDaysArray().map((date, index) => (
             <button
               key={index}
+              type="button"
               className={`${styles.dia} ${
                 !isCurrentMonth(date) ? styles.diaOutroMes : ""
               } ${isToday(date) ? styles.diaHoje : ""} ${
@@ -239,10 +233,10 @@ export default function AgendarConsulta() {
         </div>
 
         <div className={styles.calendarioAcoes}>
-          <button className={styles.botaoLimpar} onClick={handleClearDate}>
+          <button type="button" className={styles.botaoLimpar} onClick={handleClearDate}>
             Limpar
           </button>
-          <button className={styles.botaoHoje} onClick={handleToday}>
+          <button type="button" className={styles.botaoHoje} onClick={handleToday}>
             Hoje
           </button>
         </div>
@@ -250,19 +244,20 @@ export default function AgendarConsulta() {
     );
   };
 
-  const SeletorHorarios = () => {
+  // Componente Seletor de Horários integrado
+  const SeletorHorariosCompacto = () => {
     return (
-      <div className={styles.seletorHorarios}>
+      <div className={styles.seletorHorariosCompacto}>
         <h3 className={styles.horariosTitulo}>Selecione uma hora</h3>
         <div className={styles.listaHorarios}>
           {horariosDisponiveis.map(horario => (
             <button
               key={horario}
+              type="button"
               className={`${styles.horarioItem} ${
                 form.hora === horario ? styles.horarioSelecionado : ""
               }`}
               onClick={() => handleHorarioSelect(horario)}
-              type="button"
             >
               {horario}
             </button>
@@ -272,13 +267,9 @@ export default function AgendarConsulta() {
     );
   };
 
-  const medicoSelecionado = medicos.find(m => m.id === Number(form.idMedico));
-  const pacienteSelecionado = pacientes.find(p => p.id === Number(form.idPaciente));
-
   return (
     <section className={styles.agendar}>
       <h1 className={styles.titulo}>Agendar Consulta</h1>
-      <p className={styles.subtitulo}>Matrícula: 2024103030040</p>
       
       <div className={styles.gridContainer}>
         <div className={styles.colunaFormulario}>
@@ -295,7 +286,7 @@ export default function AgendarConsulta() {
                 <option value="">Selecione um paciente</option>
                 {pacientes.map((p) => (
                   <option key={p.id} value={p.id}>
-                    {p.nome} - {p.email || p.telefone || ''}
+                    {p.nome}
                   </option>
                 ))}
               </select>
@@ -334,6 +325,12 @@ export default function AgendarConsulta() {
               </select>
             </div>
 
+            {/* Calendário e Horários dentro do formulário */}
+            <div className={`${styles.formGroup} ${styles.calendarioHorario}`}>
+              <CalendarioCompacto />
+              <SeletorHorariosCompacto />
+            </div>
+
             <button 
               type="submit" 
               disabled={loading} 
@@ -350,51 +347,7 @@ export default function AgendarConsulta() {
             </button>
           </form>
         </div>
-
-        <div className={styles.colunaCalendario}>
-          <Calendario />
-          <SeletorHorarios />
-        </div>
       </div>
-
-      {consultasAgendadas.length > 0 && (
-        <div className={styles.listaConsultas}>
-          <h2 className={styles.listaTitulo}>
-            Consultas Agendadas
-            <span className={styles.contador}>{consultasAgendadas.length}</span>
-          </h2>
-          <div className={styles.consultasList}>
-            {consultasAgendadas.map((consulta) => (
-              <div key={consulta.id} className={styles.consultaItem}>
-                <div className={styles.consultaHeader}>
-                  <div className={styles.consultaId}>#{consulta.id}</div>
-                  <div className={styles.consultaStatus}>Agendada</div>
-                </div>
-                <div className={styles.consultaInfo}>
-                  <div className={styles.infoLinha}>
-                    <span className={styles.textoDestaque}>Paciente:</span>
-                    <span className={styles.textoValor}>{consulta.paciente}</span>
-                  </div>
-                  <div className={styles.infoLinha}>
-                    <span className={styles.textoDestaque}>Médico:</span>
-                    <span className={styles.textoValor}>{consulta.medico}</span>
-                  </div>
-                  <div className={styles.infoLinha}>
-                    <span className={styles.textoDestaque}>Data:</span>
-                    <span className={styles.textoValor}>{consulta.data} às {consulta.hora}</span>
-                  </div>
-                  <div className={styles.infoLinha}>
-                    <span className={styles.textoDestaque}>Tipo:</span>
-                    <span className={`${styles.textoValor} ${consulta.tipo === 'Particular' ? styles.tipoParticular : styles.tipoPlanoSaude}`}>
-                      {consulta.tipo}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </section>
   );
 }

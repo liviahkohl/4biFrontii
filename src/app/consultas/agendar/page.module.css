@@ -1,406 +1,386 @@
 /* page.module.css */
 
 .agendar {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f5f5;
-    min-height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+.titulo {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Formulário */
+.colunaFormulario {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.25rem;
+  border: 1px solid #e0e0e0;
+}
+
+.formAgendar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.select {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #495057;
+  background-color: white;
+  transition: border-color 0.15s ease-in-out;
+  font-family: inherit;
+  width: 100%;
+}
+
+.select:focus {
+  outline: none;
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+/* Calendário e Horários dentro do formulário */
+.formGroup.calendarioHorario {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .formGroup.calendarioHorario {
+    grid-template-columns: 1fr;
   }
-  
-  .titulo {
-    text-align: center;
-    color: #333;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    font-weight: 700;
+}
+
+/* Calendário compacto */
+.calendarioCompacto {
+  background: white;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.dataSelecionada {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #495057;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+  border: 1px solid #e9ecef;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.calendarioHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.calendarioTitulo {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #343a40;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.calendarioNav {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.calendarioNav button {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: #495057;
+  transition: all 0.15s ease-in-out;
+  padding: 0;
+  font-family: inherit;
+}
+
+.calendarioNav button:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.calendarioDiasSemana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.125rem;
+  margin-bottom: 0.375rem;
+}
+
+.diaSemana {
+  text-align: center;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.75rem;
+  padding: 0.25rem 0;
+  text-transform: uppercase;
+}
+
+.calendarioDias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.dia {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e9ecef;
+  background: white;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: #495057;
+  transition: all 0.15s ease-in-out;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1.75rem;
+}
+
+.dia:hover:not(.diaOutroMes) {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.diaHoje {
+  background-color: #e7f1ff;
+  border-color: #cfe2ff;
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+.diaSelecionado {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 500;
+  border-color: #0a58ca;
+}
+
+.diaOutroMes {
+  color: #adb5bd;
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+  cursor: default;
+}
+
+.diaOutroMes:hover {
+  background-color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.calendarioAcoes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.botaoLimpar,
+.botaoHoje {
+  flex: 1;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid #dee2e6;
+  border-radius: 3px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  font-size: 0.75rem;
+  font-family: inherit;
+  background-color: white;
+  color: #495057;
+}
+
+.botaoLimpar:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+  color: #dc3545;
+}
+
+.botaoHoje:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+  color: #198754;
+}
+
+/* Seletor de Horários compacto */
+.seletorHorariosCompacto {
+  background: white;
+  border-radius: 6px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  height: 100%;
+}
+
+.horariosTitulo {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.listaHorarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.375rem;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.listaHorarios::-webkit-scrollbar {
+  width: 4px;
+}
+
+.listaHorarios::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.listaHorarios::-webkit-scrollbar-thumb {
+  background: #adb5bd;
+  border-radius: 2px;
+}
+
+.horarioItem {
+  padding: 0.5rem 0.375rem;
+  background-color: white;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  font-family: monospace;
+  letter-spacing: 0.5px;
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horarioItem:hover {
+  background-color: #f8f9fa;
+  border-color: #adb5bd;
+}
+
+.horarioSelecionado {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0a58ca;
+  font-weight: 500;
+}
+
+.horarioSelecionado:hover {
+  background-color: #0a58ca;
+  border-color: #084298;
+}
+
+/* Botão de Agendar */
+.botaoAgendar {
+  background-color: #54c877;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+  margin-top: 1rem;
+  font-family: inherit;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.botaoAgendar:hover:not(:disabled) {
+  background-color: #2b5c53;
+}
+
+.botaoAgendar:active:not(:disabled) {
+  background-color: #1f3d3a;
+}
+
+.botaoAgendar:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.loadingSpinner {
+  display: inline-block;
+  width: 0.875rem;
+  height: 0.875rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
-  
-  .subtitulo {
-    text-align: center;
-    color: #666;
-    font-size: 1.1rem;
-    margin-bottom: 3rem;
-    font-weight: 500;
-  }
-  
-  /* Layout Grid */
-  .gridContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    margin-bottom: 3rem;
-  }
-  
-  .colunaFormulario,
-  .colunaCalendario {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  
-  /* Formulário */
-  .formAgendar {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .formGroup {
-    margin-bottom: 1.5rem;
-  }
-  
-  .label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-size: 1rem;
-  }
-  
-  .select {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e1e5e9;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: white;
-    color: #333;
-  }
-  
-  .select:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  /* Calendário - Estilo da Imagem */
-  .calendario {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dataSelecionada {
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    background: #f8f9fa;
-    border-radius: 6px;
-    text-align: center;
-    font-weight: 500;
-  }
-  
-  .calendarioHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
-  
-  .calendarioTitulo {
-    color: #333;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin: 0;
-    text-transform: lowercase;
-  }
-  
-  .calendarioNav {
-    display: flex;
-    gap: 0.5rem;
-  }
-  
-  .calendarioNav button {
-    background: none;
-    border: 1px solid #ddd;
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .calendarioNav button:hover {
-    background: #f8f9fa;
-  }
-  
-  .calendarioDiasSemana {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.25rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .diaSemana {
-    text-align: center;
-    font-weight: 600;
-    color: #666;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-  }
-  
-  .calendarioDias {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 0.25rem;
-  }
-  
-  .dia {
-    aspect-ratio: 1;
-    border: 1px solid transparent;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .dia:hover {
-    background: #f8f9fa;
-  }
-  
-  .diaHoje {
-    background: #007bff;
-    color: white;
-    font-weight: 600;
-  }
-  
-  .diaSelecionado {
-    background: #28a745;
-    color: white;
-    font-weight: 600;
-  }
-  
-  .diaOutroMes {
-    color: #ccc;
-  }
-  
-  .calendarioAcoes {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    justify-content: center;
-  }
-  
-  .botaoLimpar,
-  .botaoHoje {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .botaoHoje {
-    background: #007bff;
-    color: white;
-    border-color: #007bff;
-  }
-  
-  /* Seletor de Horários */
-  .seletorHorarios {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .horariosTitulo {
-    color: #333;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-  }
-  
-  .listaHorarios {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-  
-  .horarioItem {
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    text-align: center;
-  }
-  
-  .horarioItem:hover {
-    background: #f8f9fa;
-  }
-  
-  .horarioSelecionado {
-    background: #28a745;
-    color: white;
-    border-color: #28a745;
-  }
-  
-  /* Botão Agendar */
-  .botaoAgendar {
-    width: 100%;
-    background: #28a745;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-    margin-top: 1rem;
-  }
-  
-  .botaoAgendar:hover:not(:disabled) {
-    background: #218838;
-  }
-  
-  .botaoAgendar:disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
-  }
-  
-  .loadingSpinner {
-    width: 16px;
-    height: 16px;
-    border: 2px solid transparent;
-    border-top: 2px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  /* Lista de Consultas */
-  .listaConsultas {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .listaTitulo {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #333;
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
-  }
-  
-  .contador {
-    background: #007bff;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  
-  .consultasList {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .consultaItem {
-    border: 1px solid #e1e5e9;
-    border-radius: 8px;
-    padding: 1rem;
-    background: #fafafa;
-  }
-  
-  .consultaHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .consultaId {
-    color: #666;
-    font-size: 0.8rem;
-    font-weight: 600;
-  }
-  
-  .consultaStatus {
-    background: #28a745;
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
-  }
-  
-  .consultaInfo {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-  }
-  
-  .infoLinha {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .textoDestaque {
-    font-weight: 600;
-    color: #555;
-    font-size: 0.8rem;
-  }
-  
-  .textoValor {
-    color: #333;
-    font-size: 0.8rem;
-  }
-  
-  .tipoParticular {
-    color: #dc3545;
-    font-weight: 600;
-  }
-  
-  .tipoPlanoSaude {
-    color: #28a745;
-    font-weight: 600;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .gridContainer {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-    
-    .agendar {
-      padding: 1rem;
-    }
-    
-    .listaHorarios {
-      grid-template-columns: 1fr;
-    }
-    
-    .calendarioDiasSemana,
-    .calendarioDias {
-      gap: 0.1rem;
-    }
-    
-    .dia {
-      font-size: 0.7rem;
-    }
-  }
+}
