@@ -56,23 +56,25 @@ export default function ListarConsultas() {
           <table className={styles.table}>
             <thead>
               <tr>
-                <th>Paciente</th>
-                <th>Médico</th>
-                <th>Especialidade</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Tipo</th>
+                <th className={styles.colPaciente}>Paciente</th>
+                <th className={styles.colMedico}>Médico</th>
+                <th className={styles.colEspecialidade}>Especialidade</th>
+                <th className={styles.colData}>Data</th>
+                <th className={styles.colHora}>Hora</th>
+                <th className={styles.colTipo}>Tipo</th>
               </tr>
             </thead>
             <tbody>
               {consultas.map((consulta, index) => (
-                <tr key={index}>
-                  <td>{consulta.paciente}</td>
-                  <td>{consulta.medico}</td>
-                  <td>{consulta.especialidade}</td>
-                  <td>{consulta.data}</td>
-                  <td>{consulta.hora}</td>
-                  <td>{consulta.tipo}</td>
+                <tr key={index} className={styles.tableRow}>
+                  <td className={styles.colPaciente} data-label="Paciente:">{consulta.paciente}</td>
+                  <td className={styles.colMedico} data-label="Médico:">{consulta.medico}</td>
+                  <td className={styles.colEspecialidade} data-label="Especialidade:">{consulta.especialidade}</td>
+                  <td className={styles.colData} data-label="Data:">{consulta.data}</td>
+                  <td className={styles.colHora} data-label="Hora:">{consulta.hora}</td>
+                  <td className={styles.colTipo} data-label="Tipo:">
+                    <span className={styles.badge}>{consulta.tipo}</span>
+                  </td>
                 </tr>
               ))}
             </tbody>

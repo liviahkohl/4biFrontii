@@ -1,5 +1,3 @@
-
-/* Header Desktop */
 .header {
   background: linear-gradient(135deg, #1dd698, #0c0358);
   padding: 0 3rem;
@@ -7,7 +5,6 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  position: relative;
   min-height: 90px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -49,7 +46,6 @@
   transform: translateY(-2px);
 }
 
-/* Submenu Desktop - CORREÇÃO AQUI */
 .ulSubMenu {
   position: absolute;
   top: 100%;
@@ -67,7 +63,6 @@
   transition: all 0.3s ease;
   z-index: 1000;
   border-top: 3px solid #1dd698;
-  overflow: hidden; /* IMPEDE QUE O CONTEÚDO ULTRAPASSE */
 }
 
 .liMenu:hover .ulSubMenu {
@@ -78,32 +73,27 @@
 
 .liSubMenu {
   padding: 0;
-  margin: 0;
-  width: 100%; /* GARANTE QUE OCUPE TODA A LARGURA */
 }
 
 .liSubMenu .link {
   color: #444;
   display: block;
   padding: 1rem 2rem;
-  width: 100%;
   border-radius: 0;
   font-size: 1rem;
   font-weight: 500;
   transition: all 0.2s ease;
   border-left: 4px solid transparent;
-  box-sizing: border-box; /* GARANTE QUE PADDING NÃO AUMENTE A LARGURA */
-  margin: 0; /* REMOVE QUALQUER MARGEM */
 }
 
 .liSubMenu .link:hover {
   background-color: #f8f9fa;
   color: #1dd698;
   padding-left: 2.5rem;
-  transform: none; 
+  transform: none;
+  border-left-color: #1dd698;
 }
 
-/* Header Mobile */
 .headerMobile {
   display: none;
   background: linear-gradient(135deg, #1dd698, #0c0358);
@@ -124,7 +114,6 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Botão Hamburguer */
 .mobileButton {
   background: none;
   border: none;
@@ -162,7 +151,6 @@
   transform: rotate(-45deg) translate(8px, -8px);
 }
 
-/* Menu Mobile */
 .mobileMenu {
   position: absolute;
   top: 100%;
@@ -171,7 +159,6 @@
   background: white;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   z-index: 1000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .ulMenuMobile {
@@ -204,7 +191,6 @@
   padding-left: 2.5rem;
 }
 
-/* Submenu Mobile */
 .mobileSubmenu {
   padding: 0;
 }
@@ -225,7 +211,6 @@
   margin: 0;
   padding: 0;
   background-color: #f8f9fa;
-  overflow: hidden; /* IMPEDE ULTRAPASSAR NO MOBILE TAMBÉM */
 }
 
 .ulSubMenuMobile .link {
@@ -235,8 +220,6 @@
   font-weight: 500;
   border-left: 4px solid transparent;
   transition: all 0.2s ease;
-  box-sizing: border-box; /* GARANTE CONSISTÊNCIA */
-  width: 100%;
 }
 
 .ulSubMenuMobile .link:hover {
@@ -246,7 +229,6 @@
   padding-left: 4rem;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .header {
     display: none;
@@ -264,7 +246,6 @@
   }
 }
 
-/* Melhorias para telas muito grandes */
 @media (min-width: 1200px) {
   .header {
     padding: 0 4rem;
@@ -277,5 +258,37 @@
   .link {
     font-size: 1.15rem;
     padding: 0.85rem 1.75rem;
+  }
+  
+  .ulSubMenu {
+    min-width: 260px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 0 2rem;
+  }
+  
+  .logo {
+    font-size: 1.7rem;
+  }
+  
+  .ulMenu {
+    gap: 1.5rem;
+  }
+  
+  .link {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+  
+  .ulSubMenu {
+    min-width: 200px;
+  }
+  
+  .liSubMenu .link {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
   }
 }

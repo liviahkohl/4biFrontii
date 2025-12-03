@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
-import Image from "next/image";
 
 export default function Header() {
   const [show, setShow] = useState(false);
@@ -20,8 +19,7 @@ export default function Header() {
           <span></span>
         </button>
         
-
-        <div className={styles.logoMobile}>HealthCare Center</div>
+        <div className={styles.logoMobile}>Clínica Vida+</div>
 
         {show && (
           <div className={styles.mobileMenu}>
@@ -32,30 +30,30 @@ export default function Header() {
                 <li className={styles.mobileSubmenu}>
                   <span className={styles.submenuTitle}>Especialidades</span>
                   <ul className={styles.ulSubMenuMobile}>
-                    <li><Link className={styles.link} href="/especialidades/listar" onClick={() => setShow(false)}>Listar</Link></li>
-                    <li><Link className={styles.link} href="/especialidades/adicionar" onClick={() => setShow(false)}>Adicionar</Link></li>
-                    <li><Link className={styles.link} href="/especialidades/excluir" onClick={() => setShow(false)}>Excluir</Link></li>
-                    <li><Link className={styles.link} href="/especialidades/editar" onClick={() => setShow(false)}>Editar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Listar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Adicionar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Excluir</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Editar</Link></li>
                   </ul>
                 </li>
 
                 <li className={styles.mobileSubmenu}>
                   <span className={styles.submenuTitle}>Médicos</span>
                   <ul className={styles.ulSubMenuMobile}>
-                    <li><Link className={styles.link} href="/medicos/listar" onClick={() => setShow(false)}>Listar</Link></li>
-                    <li><Link className={styles.link} href="/medicos/adicionar" onClick={() => setShow(false)}>Adicionar</Link></li>
-                    <li><Link className={styles.link} href="/medicos/excluir" onClick={() => setShow(false)}>Excluir</Link></li>
-                    <li><Link className={styles.link} href="/medicos/editar" onClick={() => setShow(false)}>Editar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Listar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Adicionar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Excluir</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Editar</Link></li>
                   </ul>
                 </li>
 
                 <li className={styles.mobileSubmenu}>
                   <span className={styles.submenuTitle}>Pacientes</span>
                   <ul className={styles.ulSubMenuMobile}>
-                    <li><Link className={styles.link} href="/pacientes/listar" onClick={() => setShow(false)}>Listar</Link></li>
-                    <li><Link className={styles.link} href="/pacientes/adicionar" onClick={() => setShow(false)}>Adicionar</Link></li>
-                    <li><Link className={styles.link} href="/pacientes/excluir" onClick={() => setShow(false)}>Excluir</Link></li>
-                    <li><Link className={styles.link} href="/pacientes/editar" onClick={() => setShow(false)}>Editar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Listar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Adicionar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Excluir</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Editar</Link></li>
                   </ul>
                 </li>
 
@@ -64,8 +62,8 @@ export default function Header() {
                   <ul className={styles.ulSubMenuMobile}>
                     <li><Link className={styles.link} href="/consultas/listar" onClick={() => setShow(false)}>Listar</Link></li>
                     <li><Link className={styles.link} href="/consultas/agendar" onClick={() => setShow(false)}>Agendar</Link></li>
-                    <li><Link className={styles.link} href="/consultas/editar" onClick={() => setShow(false)}>Editar Agendamento</Link></li>
-                    <li><Link className={styles.link} href="/consultas/cancelar" onClick={() => setShow(false)}>Cancelar</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Editar Agendamento</Link></li>
+                    <li><Link className={styles.link} href="/" onClick={() => setShow(false)}>Cancelar</Link></li>
                   </ul>
                 </li>
               </ul>
@@ -75,7 +73,7 @@ export default function Header() {
       </header>
 
       <header className={styles.header}>
-        <div className={styles.logo}>Saúde Total</div>
+        <div className={styles.logo}>Clínica Vida+</div>
         <nav>
           <ul className={styles.ulMenu}>
             <li className={styles.liMenu}>
@@ -83,42 +81,42 @@ export default function Header() {
             </li>
             
             <li className={styles.liMenu}>
-              <Link className={styles.link} href="/especialidades">Especialidades</Link>
+              <Link className={styles.link} href="/">Especialidades</Link>
               <ul className={styles.ulSubMenu}>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/especialidades/listar">Listar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/especialidades/adicionar">Adicionar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/especialidades/excluir">Excluir</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/especialidades/editar">Editar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Listar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Adicionar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Excluir</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Editar</Link></li>
               </ul>
             </li>
 
             <li className={styles.liMenu}>
-              <Link className={styles.link} href="/medicos">Médicos</Link>
+              <Link className={styles.link} href="/">Médicos</Link>
               <ul className={styles.ulSubMenu}>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/medicos/listar">Listar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/medicos/adicionar">Adicionar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/medicos/excluir">Excluir</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/medicos/editar">Editar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Listar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Adicionar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Excluir</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Editar</Link></li>
               </ul>
             </li>
 
             <li className={styles.liMenu}>
-              <Link className={styles.link} href="/pacientes">Pacientes</Link>
+              <Link className={styles.link} href="/">Pacientes</Link>
               <ul className={styles.ulSubMenu}>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/pacientes/listar">Listar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/pacientes/adicionar">Adicionar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/pacientes/excluir">Excluir</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/pacientes/editar">Editar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Listar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Adicionar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Excluir</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Editar</Link></li>
               </ul>
             </li>
 
             <li className={styles.liMenu}>
-              <Link className={styles.link} href="/consultas">Consultas</Link>
+              <Link className={styles.link} href="/">Consultas</Link>
               <ul className={styles.ulSubMenu}>
                 <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/listar">Listar</Link></li>
                 <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/agendar">Agendar</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/editar">Editar Agendamento</Link></li>
-                <li className={styles.liSubMenu}><Link className={styles.link} href="/consultas/cancelar">Cancelar</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Editar Agendamento</Link></li>
+                <li className={styles.liSubMenu}><Link className={styles.link} href="/">Cancelar</Link></li>
               </ul>
             </li>
           </ul>

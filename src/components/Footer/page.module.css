@@ -3,18 +3,30 @@
     color: white;
     padding: 20px 15px 10px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
   
   .conteudoRodape {
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto 15px;
     text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .infoClinica {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
   
   .infoClinica h3 {
     font-size: 1.3rem;
     margin-bottom: 8px;
     color: white;
+    word-wrap: break-word;
   }
   
   .infoClinica p {
@@ -22,46 +34,84 @@
     margin-bottom: 15px;
     color: #d1e7ff;
     font-size: 0.85rem;
+    word-wrap: break-word;
+    padding: 0 5px;
   }
   
   .contato {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
-    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
   }
   
   .contatoItem {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
+    min-width: 0;
+    flex: 1;
+    max-width: 200px;
   }
   
-  .contatoItem p {
-    margin: 0;
-    font-size: 0.8rem;
-    color: #e6f2ff;
+  .iconeContainer {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contatoItem:hover .iconeContainer {
+    background-color: rgba(255, 255, 255, 0.2);
   }
   
   .icone {
-    font-size: 1.2rem;
-    color: #2d7cf0;
+    object-fit: contain;
+    filter: brightness(0) invert(1); 
+    width: 100%;
+    height: 100%;
+  }
+  
+  .contatoTexto {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #e6f2ff;
+    word-wrap: break-word;
+    word-break: break-word;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    text-align: center;
   }
   
   .rodapeBase {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 8px;
     text-align: center;
+    width: 100%;
     max-width: 500px;
     margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
   }
   
-  .rodapeBase p {
+  .copy, .creditos {
     margin-bottom: 3px;
     color: #b3d9ff;
     font-size: 0.75rem;
+    word-wrap: break-word;
+    padding: 0 5px;
   }
   
   .creditos {
@@ -80,14 +130,81 @@
     }
     
     .contato {
+      flex-direction: column;
       gap: 15px;
+      align-items: center;
     }
     
-    .contatoItem p {
+    .contatoItem {
+      flex-direction: row;
+      gap: 12px;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 300px;
+      align-items: center;
+    }
+    
+    .iconeContainer {
+      width: 35px;
+      height: 35px;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+    
+    .contatoTexto {
+      text-align: left;
+      font-size: 0.8rem;
+      flex: 1;
+    }
+    
+    .infoClinica p {
+      padding: 0;
+    }
+    
+    .copy, .creditos {
+      padding: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .rodape {
+      padding: 12px 8px 6px;
+    }
+    
+    .infoClinica h3 {
+      font-size: 1.1rem;
+    }
+    
+    .infoClinica p {
+      font-size: 0.8rem;
+    }
+    
+    .contatoItem {
+      max-width: 100%;
+      gap: 10px;
+    }
+    
+    .iconeContainer {
+      width: 30px;
+      height: 30px;
+      padding: 5px;
+    }
+    
+    .contatoTexto {
       font-size: 0.75rem;
     }
     
-    .icone {
-      font-size: 1rem;
+    .copy {
+      font-size: 0.7rem;
+    }
+    
+    .creditos {
+      font-size: 0.65rem;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .contatoItem {
+      min-width: 120px;
     }
   }
