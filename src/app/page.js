@@ -17,7 +17,7 @@ const Home = () => {
           </p>
           <button 
             className={styles.ctaBtn}
-            onClick={() => window.location.href = '/agendar-consulta'}
+            onClick={() => window.location.href = '/consultas/agendar'}
           >
             Agendar Consulta
           </button>
